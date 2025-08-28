@@ -1,5 +1,7 @@
+"use client"
+
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, Phone, GraduationCap, Briefcase, Coffee, Calculator, BarChart3, Brain, Network, MapPin, FileText, Globe } from "lucide-react";
+import { Github, Linkedin, Mail, Phone, GraduationCap, Briefcase, Coffee, Calculator, BarChart3, Brain, Network, MapPin, Globe } from "lucide-react";
 
 // ====== Editable Data ======
 const PERSONAL = {
@@ -8,8 +10,8 @@ const PERSONAL = {
   location: "Kigali, Rwanda",
   email: "mukasachris100@gmail.com",
   phone: "+250 787 766 821",
-  website: "mukasachristian.dev",
-  blurb: "I build mathematical models that turn complex systems into practical decisions—spanning queuing theory, time series forecasting, and risk analytics. I'm passionate about impactful analytics for finance, healthcare, and business optimization in Africa.",
+  website: "https://mukasachristian.dev",
+  blurb: "I build mathematical models that turn complex systems into practical decisions—spanning queuing theory, time series forecasting, and risk analytics. I&apos;m passionate about impactful analytics for finance, healthcare, and business optimization in Africa.",
   availability: "Open to roles, research, and collaborations",
 };
 
@@ -120,7 +122,12 @@ const PROJECTS = [
   },
 ];
 
-function Navbar({ activeSection, setActiveSection }) {
+interface NavbarProps {
+  activeSection: string;
+  setActiveSection: (section: string) => void;
+}
+
+function Navbar({ activeSection, setActiveSection }: NavbarProps) {
   const sections = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
@@ -172,7 +179,11 @@ function Navbar({ activeSection, setActiveSection }) {
   );
 }
 
-function Home({ setActiveSection }) {
+interface HomeProps {
+  setActiveSection: (section: string) => void;
+}
+
+function Home({ setActiveSection }: HomeProps) {
   return (
     <section className="max-w-6xl mx-auto px-4 pt-12 pb-16">
       <div className="grid md:grid-cols-5 gap-8 items-center">
@@ -203,7 +214,6 @@ function Home({ setActiveSection }) {
             </button>
           </div>
         </div>
-
       </div>
     </section>
   );
@@ -220,13 +230,13 @@ function About() {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2 space-y-6 text-lg text-gray-700 leading-relaxed">
             <p>
-              Hi, I'm Mukasa Christian — an aspiring Applied Mathematician, Data Analyst, and Innovator from Rwanda. I'm currently completing my Bachelor's in Applied Mathematics at the University of Rwanda (graduating October 2025), with strong interests in data science, machine learning, and mathematical modeling.
+              Hi, I&apos;m Mukasa Christian — an aspiring Applied Mathematician, Data Analyst, and Innovator from Rwanda. I&apos;m currently completing my Bachelor&apos;s in Applied Mathematics at the University of Rwanda (graduating October 2025), with strong interests in data science, machine learning, and mathematical modeling.
             </p>
             <p>
-              I've gained practical experience through an internship at the Rwanda Stock Exchange, where I sharpened my skills in data-driven decision-making. Beyond academics, I work as a bartender and stock officer at Bicu Lounge in Kigali, where I'm building smart stock management systems and business dashboards to transform how hospitality businesses manage sales, inventory, and customer insights.
+              I&apos;ve gained practical experience through an internship at the Rwanda Stock Exchange, where I sharpened my skills in data-driven decision-making. Beyond academics, I work as a bartender and stock officer at Bicu Lounge in Kigali, where I&apos;m building smart stock management systems and business dashboards to transform how hospitality businesses manage sales, inventory, and customer insights.
             </p>
             <p>
-              I'm passionate about solving real-world problems in Africa through data and technology. Some of my key projects include:
+              I&apos;m passionate about solving real-world problems in Africa through data and technology. Some of my key projects include:
             </p>
             <ul className="list-disc ml-6 space-y-2">
               <li>AfromedChain – a blockchain-based medical records and financing platform</li>
@@ -234,7 +244,7 @@ function About() {
               <li>Smart Aerodynamic Transport Shell – designing lightweight, efficient vehicles for urban Rwanda</li>
             </ul>
             <p>
-              Outside of work and studies, I'm a Formula 1 enthusiast and a huge McLaren Motorsport fan 🏎️. I also enjoy playing chess, which sharpens my strategic thinking, and I'm always eager to learn and explore new ideas.
+              Outside of work and studies, I&apos;m a Formula 1 enthusiast and a huge McLaren Motorsport fan 🏎️. I also enjoy playing chess, which sharpens my strategic thinking, and I&apos;m always eager to learn and explore new ideas.
             </p>
             <p className="font-semibold text-indigo-600">
               My mission is simple: to merge mathematics, data, and technology to create smarter solutions that improve lives and businesses in Africa.
@@ -401,11 +411,11 @@ function Contact() {
         </div>
         <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Let's Connect</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Let&apos;s Connect</h3>
             <p className="text-gray-600 mb-6">
-              I'm always interested in discussing new opportunities, collaborations, and innovative projects. 
-              Whether you're looking for mathematical modeling expertise, data analysis, or just want to chat about 
-              technology in Africa, I'd love to hear from you.
+              I&apos;m always interested in discussing new opportunities, collaborations, and innovative projects. 
+              Whether you&apos;re looking for mathematical modeling expertise, data analysis, or just want to chat about 
+              technology in Africa, I&apos;d love to hear from you.
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -490,7 +500,7 @@ function Footer() {
   );
 }
 
-export default function App() {
+export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('home');
 
   const renderSection = () => {
